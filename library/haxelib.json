@@ -1,0 +1,11 @@
+{
+  "name": "jslibs",
+  "license": "LGPL",
+  "tags": ["js","javascript","externs","image","images"],
+  "description": "Colection of externs to js libraries.",
+  "contributors": ["yar3333"],
+  "releasenote": "+RgbQuant",
+  "version": "1.0.0",
+  "url": "https://bitbucket.org/yar3333/haxe-jslibs",
+  "dependencies": {}
+}
