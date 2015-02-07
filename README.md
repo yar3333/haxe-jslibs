@@ -7,3 +7,6 @@ A library to quatize images. See [https://github.com/leeoniya/RgbQuant.js](https
 
 ### Pixastic ###
 JavaScript Image Processing Library See [http://www.pixastic.com](http://www.pixastic.com) for details.
+
+### FullScreenApi ###
+Class to control full screen mode in web browser.
