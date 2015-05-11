@@ -1,10 +1,10 @@
 {
   "name": "jslibs",
   "license": "LGPL",
-  "tags": ["js","externs","image","images"],
-  "description": "Colection of externs to js libraries. Now: RgbQuant, Pixastic and FullScreenApi.",
+  "tags": ["js","RgbQuant","Pixastic","FullScreenApi"],
+  "description": "Colection of externs to js libraries.",
   "contributors": ["yar3333"],
-  "releasenote": "Init",
+  "releasenote": "Added: RgbQuant, Pixastic and FullScreenApi.",
   "version": "1.0.0",
   "url": "https://bitbucket.org/yar3333/haxe-jslibs",
   "dependencies": {}
