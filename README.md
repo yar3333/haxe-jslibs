@@ -10,3 +10,6 @@ JavaScript Image Processing Library See [http://www.pixastic.com](http://www.pix
 
 ### FullScreenApi ###
 Class to control full screen mode in web browser.
+
+### FontSupport ###
+Class to detect supported font formats (`woff2`/`woff`/`truetype`/`svg`).
