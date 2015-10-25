@@ -4,8 +4,8 @@
   "tags": ["js","RgbQuant","Pixastic","FullScreenApi"],
   "description": "Colection of externs to js libraries.",
   "contributors": ["yar3333"],
-  "releasenote": "Add FontSupport library to detect supported font formats.",
-  "version": "1.1.0",
+  "releasenote": "Just a readme fix.",
+  "version": "1.1.1",
   "url": "https://bitbucket.org/yar3333/haxe-jslibs",
   "dependencies": {}
 }
