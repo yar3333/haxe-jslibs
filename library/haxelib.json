@@ -1,8 +1,8 @@
 {
   "name": "jslibs",
   "license": "LGPL",
-  "tags": ["js","RgbQuant","Pixastic","FullScreenApi"],
-  "description": "Colection of externs to js libraries.",
+  "tags": ["js","extern","RgbQuant","Pixastic","FullScreenApi"],
+  "description": "Colection of js externs: RgbQuant, Pixastic, FullScreenApi, FontSupport.",
   "contributors": ["yar3333"],
   "releasenote": "Just a readme fix.",
   "version": "1.1.1",
