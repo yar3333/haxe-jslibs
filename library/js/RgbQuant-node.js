@@ -1,5 +1,3 @@
-(function() {
-
 /*
 * Copyright (c) 2015, Leon Sorokin
 * All rights reserved. (MIT Licensed)
@@ -924,5 +922,4 @@ function sortedHashKeys(obj, desc) {
 	});
 }
 
-window.RgbQuant = RgbQuant;
-})();
+module.exports = RgbQuant;

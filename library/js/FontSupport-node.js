@@ -1,4 +1,4 @@
-window.fontSupport = (function () {
+module.export = (function () {
 	"use strict";
 
 	var doc = window.document;

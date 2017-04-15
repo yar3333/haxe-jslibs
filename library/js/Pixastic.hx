@@ -8,8 +8,20 @@ private typedef Rect =
 	var height : Int;
 }
 
-@:native("Pixastic") extern class Pixastic
+#if !jslibs_node
+@:native("Pixastic")
+#else
+@:jsRequire("jslibs-pixastic")
+#end
+extern class Pixastic
 {
+	#if !jslibs_node
+	private static function __init__() : Void
+	{
+		haxe.macro.Compiler.includeFile("js/Pixastic.js");
+	}
+	#end
+	
 	static function process(image:Dynamic, action:String, options:Dynamic, ?callb:Dynamic->Void) : Dynamic;
 	
 	/**
@@ -125,7 +137,7 @@ private typedef Rect =
 	{
 		return process(image, "flip",
 		{
-			axis:"horizontal"
+			axis:"horizontal",
 			rect:rect 
 		});
 	}
@@ -134,7 +146,7 @@ private typedef Rect =
 	{
 		return process(image, "flip",
 		{
-			axis:"vertical"
+			axis:"vertical",
 			rect:rect 
 		});
 	}
@@ -145,16 +157,6 @@ private typedef Rect =
 		{
 			amount:amount,
 			radius:radius,
-			rect:rect 
-		});
-	}
-	
-	static inline function histogram(image:Dynamic, ?average:Bool, ?paint:Bool, ?rect:Rect) : Array<Float>
-	{
-		return process(image, "histogram",
-		{
-			average:average,
-			paint:paint,
 			rect:rect 
 		});
 	}
@@ -210,8 +212,8 @@ private typedef Rect =
 	{
 		return process(image, "lighten",
 		{
-			amount:amount,
-			rect:rect 
+			amount: amount,
+			rect: rect 
 		});
 	}
 	
@@ -219,8 +221,8 @@ private typedef Rect =
 	{
 		return process(image, "mosaic",
 		{
-			blockSize:blockSize,
-			rect:rect 
+			blockSize: blockSize,
+			rect: rect 
 		});
 	}
 	
@@ -228,10 +230,10 @@ private typedef Rect =
 	{
 		return process(image, "noise",
 		{
-			amount:amount,
-			strength:strength,
-			mono:mono,
-			rect:rect 
+			amount: amount,
+			strength: strength,
+			mono: mono,
+			rect: rect 
 		});
 	}
 	
@@ -239,8 +241,8 @@ private typedef Rect =
 	{
 		return process(image, "posterize",
 		{
-			levels:levels,
-			rect:rect 
+			levels: levels,
+			rect: rect 
 		});
 	}
 	
@@ -248,11 +250,11 @@ private typedef Rect =
 	{
 		return process(image, "pointillize",
 		{
-			radius:radius,
-			density:density,
-			noise:noise,
-			transparent:transparent,
-			rect:rect 
+			radius: radius,
+			density: density,
+			noise: noise,
+			transparent: transparent,
+			rect: rect 
 		});
 	}
 	
@@ -260,7 +262,7 @@ private typedef Rect =
 	{
 		return process(image, "removenoise",
 		{
-			rect:rect 
+			rect: rect 
 		});
 	}
 	
@@ -268,9 +270,8 @@ private typedef Rect =
 	{
 		return process(image, "resize",
 		{
-			width:width, 
-			height:height, 
-			rect:rect 
+			width: width, 
+			height: height
 		});
 	}
 	
@@ -278,7 +279,7 @@ private typedef Rect =
 	{
 		return process(image, "rotate",
 		{
-			angle:angleDeg
+			angle: angleDeg
 		});
 	}
 	
@@ -289,8 +290,8 @@ private typedef Rect =
 	{
 		return process(image, "sepia",
 		{
-			mode:mode, 
-			rect:rect 
+			mode: mode, 
+			rect: rect 
 		});
 	}
 	
@@ -298,8 +299,8 @@ private typedef Rect =
 	{
 		return process(image, "sharpen",
 		{
-			amount:amount, 
-			rect:rect 
+			amount: amount, 
+			rect: rect 
 		});
 	}
 	
@@ -307,19 +308,19 @@ private typedef Rect =
 	{
 		return process(image, "solarize",
 		{
-			average:average, 
+			average: average, 
 			rect:rect 
-		});
+		}); 
 	}
 	
 	static inline function unsharpmask(image:Dynamic, amount:Float, radius:Float, threshold:Float, ?rect:Rect) : Dynamic
 	{
 		return process(image, "unsharpmask",
 		{
-			amount:amount, 
-			radius:radius, 
-			threshold:threshold, 
-			rect:rect 
+			amount: amount, 
+			radius: radius, 
+			threshold: threshold, 
+			rect: rect 
 		});
 	}
 }
