@@ -88,20 +88,22 @@ typedef RgbQuantOptions =
  * https://github.com/leeoniya/RgbQuant.js - sources
  * http://o-0.me/RgbQuant/ - playground
  */
-#if !jslibs_node
+#if (!js_force_global_node_loader && !jslibs_node_loader)
 @:native("RgbQuant")
 #else
-@:jsRequire("jslibs-rgbquant")
+@:jsRequire("haxelib/jslibs/js/RgbQuant")
 #end
 extern class RgbQuant
 {
-	#if !jslibs_node
+	#if (!js_force_global_node_loader && !jslibs_node_loader)
 	private static function __init__() : Void
 	{
-		haxe.macro.Compiler.includeFile("js/RgbQuant.js");
+		untyped __js__("(function(){ var define"); // prevent AMD loading
+		haxe.macro.Compiler.includeFile("js/RgbQuant.js", "inline");
+		untyped __js__("})()");
 	}
 	#end
-
+	
 	function new(opts:RgbQuantOptions) : Void;
 	
 	/**

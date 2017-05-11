@@ -1,6 +1,9 @@
 # jslibs haxe library #
 
-Collection of externs to js libraries. Define `-D jslibs-node` for `node` mode.
+Collection of externs to js libraries.
+
+Embed source js into result haxe js by default.
+To use with nodejs (webpack/browserify), specify `-D js-force-global-node-loader` or `-D jslibs-node-loader` compiler options.
 
 ### RgbQuant ###
 A library to quatize images. See [https://github.com/leeoniya/RgbQuant.js](https://github.com/leeoniya/RgbQuant.js) for details.

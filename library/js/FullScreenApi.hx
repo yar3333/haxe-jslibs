@@ -1,16 +1,18 @@
 package js;
 
-#if !jslibs_node
+#if (!js_force_global_node_loader && !jslibs_node_loader)
 @:native("fullScreenApi")
 #else
-@:jsRequire("jslibs-fullscreenapi")
+@:jsRequire("haxelib/jslibs/js/FullScreenApi")
 #end
 extern class FullScreenApi
 {
-	#if !jslibs_node
+	#if (!js_force_global_node_loader && !jslibs_node_loader)
 	private static function __init__() : Void
 	{
-		haxe.macro.Compiler.includeFile("js/FullScreenApi.js");
+		untyped __js__("(function(){ var define"); // prevent AMD loading
+		haxe.macro.Compiler.includeFile("js/FullScreenApi.js", "inline");
+		untyped __js__("})()");
 	}
 	#end
 	

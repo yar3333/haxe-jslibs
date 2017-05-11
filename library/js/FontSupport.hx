@@ -3,17 +3,19 @@ package js;
 /**
  * See https://github.com/drdk/dr-font-support.
  */
-#if !jslibs_node
+#if (!js_force_global_node_loader && !jslibs_node_loader)
 @:native("fontSupport")
 #else
-@:jsRequire("jslibs-fontsupport")
+@:jsRequire("haxelib/jslibs/js/FontSupport")
 #end
 extern class FontSupport
 {
-	#if !jslibs_node
+	#if (!js_force_global_node_loader && !jslibs_node_loader)
 	private static function __init__() : Void
 	{
-		haxe.macro.Compiler.includeFile("js/FontSupport.js");
+		untyped __js__("(function(){ var define"); // prevent AMD loading
+		haxe.macro.Compiler.includeFile("js/FontSupport.js", "inline");
+		untyped __js__("})()");
 	}
 	#end
 	
