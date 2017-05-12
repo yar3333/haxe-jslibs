@@ -13,7 +13,7 @@ extern class FontSupport
 	#if (!js_force_global_node_loader && !jslibs_node_loader)
 	private static function __init__() : Void
 	{
-		untyped __js__("(function(){ var define"); // prevent AMD loading
+		untyped __js__("(function(){ var define, module;");
 		haxe.macro.Compiler.includeFile("js/FontSupport.js", "inline");
 		untyped __js__("})()");
 	}
