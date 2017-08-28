@@ -8,21 +8,15 @@ private typedef Rect =
 	var height : Int;
 }
 
-#if (!js_force_global_node_loader && !jslibs_node_loader)
 @:native("Pixastic")
-#else
-@:jsRequire("haxelib/jslibs/js/Pixastic")
-#end
 extern class Pixastic
 {
-	#if (!js_force_global_node_loader && !jslibs_node_loader)
 	private static function __init__() : Void
 	{
 		untyped __js__("(function(){ var define, module;");
 		haxe.macro.Compiler.includeFile("js/Pixastic.js", "inline");
 		untyped __js__("})()");
 	}
-	#end
 	
 	static function process(image:Dynamic, action:String, options:Dynamic, ?callb:Dynamic->Void) : Dynamic;
 	
